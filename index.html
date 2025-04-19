@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContApp</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <header>
+        <div class="logo">ContApp</div>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Panel de Control</a></li>
+                <li><a href="#ingresos">Ingresos</a></li>
+                <li><a href="#gastos">Gastos</a></li>
+                <li><a href="#cuentas">Cuentas</a></li>
+                <li><a href="#reportes">Reportes</a></li>
+                <li><a href="#configuracion">Configuración</a></li>
+                <li><a href="#ayuda">Ayuda</a></li>
+                <li><a href="#perfil">Perfil</a></li>
+                <li><a href="#cerrar-sesion">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dashboard">
+            <h2>Panel de Control</h2>
+            <div class="resumen">
+                <div class="saldo">
+                    <h3>Saldo Actual</h3>
+                    <p>$<span id="saldo-actual">0.00</span></p>
+                </div>
+                <div class="ingresos-gastos">
+                    <h3>Ingresos vs. Gastos</h3>
+                    <canvas id="grafico-ingresos-gastos"></canvas>
+                </div>
+            </div>
+            </section>
+
+        <section id="ingresos">
+            <h2>Registro de Ingresos</h2>
+            <form id="formulario-ingresos">
+                <label for="fecha-ingreso">Fecha:</label>
+                <input type="date" id="fecha-ingreso" required><br><br>
+                <label for="descripcion-ingreso">Descripción:</label>
+                <input type="text" id="descripcion-ingreso" required><br><br>
+                <label for="monto-ingreso">Monto:</label>
+                <input type="number" id="monto-ingreso" step="0.01" required><br><br>
+                <label for="categoria-ingreso">Categoría:</label>
+                <select id="categoria-ingreso">
+                    <option value="ventas">Ventas</option>
+                    <option value="servicios">Servicios</option>
+                    <option value="intereses">Intereses</option>
+                    </select><br><br>
+                <button type="submit">Guardar Ingreso</button>
+            </form>
+
+            <h3>Historial de Ingresos</h3>
+            <table id="tabla-ingresos">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Descripción</th>
+                        <th>Monto</th>
+                        <th>Categoría</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </section>
+
+        <section id="gastos">
+            <h2>Registro de Gastos</h2>
+            <form id="formulario-gastos">
+                <label for="fecha-gasto">Fecha:</label>
+                <input type="date" id="fecha-gasto" required><br><br>
+                <label for="descripcion-gasto">Descripción:</label>
+                <input type="text" id="descripcion-gasto" required><br><br>
+                <label for="monto-gasto">Monto:</label>
+                <input type="number" id="monto-gasto" step="0.01" required><br><br>
+                <label for="categoria-gasto">Categoría:</label>
+                <select id="categoria-gasto">
+                    <option value="alquiler">Alquiler</option>
+                    <option value="suministros">Suministros</option>
+                    <option value="marketing">Marketing</option>
+                    </select><br><br>
+                <button type="submit">Guardar Gasto</button>
+            </form>
+
+            <h3>Historial de Gastos</h3>
+            <table id="tabla-gastos">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Descripción</th>
+                        <th>Monto</th>
+                        <th>Categoría</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </section>
+
+        <section id="cuentas">
+            <h2>Gestión de Cuentas</h2>
+            <form id="formulario-cuenta">
+                <label for="nombre-cuenta">Nombre de la Cuenta:</label>
+                <input type="text" id="nombre-cuenta" required><br><br>
+                <label for="saldo-inicial">Saldo Inicial:</label>
+                <input type="number" id="saldo-inicial" step="0.01" value="0.00" required><br><br>
+                <label for="tipo-cuenta">Tipo de Cuenta:</label>
+                <select id="tipo-cuenta">
+                    <option value="banco">Banco</option>
+                    <option value="efectivo">Efectivo</option>
+                    <option value="tarjeta-credito">Tarjeta de Crédito</option>
+                    </select><br><br>
+                <button type="submit">Agregar Cuenta</button>
+            </form>
+
+            <h3>Cuentas Registradas</h3>
+            <ul id="lista-cuentas">
+                </ul>
+        </section>
+
+        <section id="reportes">
+            <h2>Generación de Reportes</h2>
+            <div>
+                <label for="tipo-reporte">Tipo de Reporte:</label>
+                <select id="tipo-reporte">
+                    <option value="flujo-caja">Flujo de Caja</option>
+                    <option value="ingresos-gastos">Ingresos vs. Gastos (Detallado)</option>
+                    <option value="balance">Balance General (Simplificado)</option>
+                    </select>
+                <label for="fecha-inicio-reporte">Fecha de Inicio:</label>
+                <input type="date" id="fecha-inicio-reporte">
+                <label for="fecha-fin-reporte">Fecha de Fin:</label>
+                <input type="date" id="fecha-fin-reporte">
+                <button id="generar-reporte">Generar Reporte</button>
+            </div>
+
+            <div id="contenedor-reporte">
+                </div>
+        </section>
+
+        <section id="configuracion">
+            <h2>Configuración</h2>
+            <h3>Gestión de Categorías</h3>
+            <h3>Configuración de Moneda</h3>
+            </section>
+
+        <section id="ayuda">
+            <h2>Ayuda</h2>
+            </section>
+
+        <section id="perfil">
+            <h2>Perfil de Usuario</h2>
+            </section>
+
+        <section id="cerrar-sesion">
+            <a href="#">Cerrar Sesión</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ContApp - Todos los derechos reservados</p>
+    </footer>
+
+    <script src="script.js"></script> </body>
+</html>
